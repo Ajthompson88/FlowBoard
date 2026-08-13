@@ -5,7 +5,7 @@ export default function Home() {
     <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="panel px-6 py-12 text-center">
         <h1 className="text-2xl sm:text-3xl font-semibold mb-3">
-          Welcome to <span className="text-white">ShadowStack Kanban</span>
+          Welcome to <span className="text-white">FlowBoard</span>
         </h1>
         <p className="text-(--brand-muted)">
           Plan sprints, track tickets, and keep your work flowing. Sign in to access your board.

@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-[var(--brand-panel)]/70 backdrop-blur-md ring-1 ring-white/10">
       <div className="flex h-14 w-full items-center justify-between px-4 sm:px-6">
         <Link to="/" className="text-base font-semibold tracking-wide text-[var(--brand-text)]">
-          ShadowStack
+          FlowBoard
         </Link>
 
         <div className="flex items-center gap-2 sm:gap-3">

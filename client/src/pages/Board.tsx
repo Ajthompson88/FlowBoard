@@ -163,7 +163,7 @@ return (
           <div className="inline-grid h-9 w-9 place-items-center rounded-lg bg-(--brand-accent) text-black text-xs font-bold ring-1 ring-white/10">
             KB
           </div>
-          <h1 className="text-lg font-semibold">ShadowStack Kanban Board</h1>
+          <h1 className="text-lg font-semibold">FlowBoard</h1>
         </div>
 
         <div className="flex items-center gap-3">

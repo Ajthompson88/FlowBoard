@@ -69,7 +69,7 @@ return (
         KB
       </div>
       <div>
-        <h1 className="text-xl font-semibold text-(--brand-text)">ShadowStack Kanban</h1>
+        <h1 className="text-xl font-semibold text-(--brand-text)">FlowBoard</h1>
         <p className="text-sm text-(--brand-muted)">Sign in to continue</p>
       </div>
     </div>
