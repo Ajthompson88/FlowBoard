@@ -1,0 +1,77 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.cache/
+.next/
+out/
+
+# Logs
+logs
+*.log
+*.log.*
+*.out
+*.out.*
+*.pid
+*.seed
+*.pid.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+.env.*
+
+# Vite
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Coverage
+coverage/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sw?
+*.swo
+*.swn
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Database
+*.sqlite
+*.sqlite-journal
+*.db
+
+# Misc
+*.tgz
+*.lock-wscript
+
+# Output of 'npm pack'
+*.tgz
+
+# Frontend specific
+client/node_modules/
+client/dist/
+
+# Backend specific
+server/node_modules/
+server/dist/
