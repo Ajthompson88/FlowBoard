@@ -34,7 +34,7 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
       return res.status(403).json({ message: 'Invalid token payload' });
     }
 
-    (req as any).user = { id: userId, email, username } satisfies UserPayload;
+    req.user = { id: userId, email, username };
 
     return next();
   } catch (err) {
@@ -44,5 +44,5 @@ export function authenticateToken(req: Request, res: Response, next: NextFunctio
 }
 
 export function getUser(req: Request): UserPayload | undefined {
-  return (req as any).user as UserPayload | undefined;
+  return req.user;
 }
