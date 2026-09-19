@@ -21,7 +21,7 @@ const sequelize = new Sequelize(databaseUrl, {
     ? {
         ssl: {
           require: true,
-          rejectUnauthorized: false,
+          rejectUnauthorized: true,
         },
       }
     : undefined,
