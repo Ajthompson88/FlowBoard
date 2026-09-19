@@ -18,11 +18,12 @@
     "seed": "cd server && npm run seed",
     "render-build": "npm --prefix server install --no-audit --no-fund && npm --prefix client install --no-audit --no-fund && npm --prefix server run build && npm --prefix client run build",
     "render-start": "npm --prefix server run start",
-    "docker:build": "docker compose build",
-    "docker:up": "docker compose up -d",
-    "docker:logs": "docker compose logs -f",
-    "docker:down": "docker compose down -v",
-    "lint": "eslint"
+    "docker:build": "docker compose --env-file server/.env.docker build",
+    "docker:up": "docker compose --env-file server/.env.docker up -d",
+    "docker:logs": "docker compose --env-file server/.env.docker logs -f",
+    "docker:down": "docker compose --env-file server/.env.docker down",
+    "lint": "eslint",
+    "docker:reset": "docker compose --env-file server/.env.docker down -v"
   },
   "keywords": [],
   "author": "",
