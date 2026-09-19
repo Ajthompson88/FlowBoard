@@ -75,3 +75,4 @@ client/dist/
 # Backend specific
 server/node_modules/
 server/dist/
+.vercel
