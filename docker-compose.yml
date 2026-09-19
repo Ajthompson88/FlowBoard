@@ -2,15 +2,15 @@ services:
   db:
     image: postgres:17
     environment:
-      POSTGRES_DB: kanbanboard_bobe
-      POSTGRES_USER: kanbanboard_bobe_user
-      POSTGRES_PASSWORD: Password123
+      POSTGRES_DB: flowboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - dbdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kanbanboard_bobe_user -d kanbanboard_bobe"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d flowboard"]
       interval: 5s
       timeout: 3s
       retries: 10
@@ -22,7 +22,7 @@ services:
     env_file:
       - ./server/.env.local
     environment:
-      DB_URL: postgresql://kanbanboard_bobe_user:Password123@db:5432/kanbanboard_bobe
+      DB_URL: postgresql://postgres:password123@db:5432/flowboard
       NODE_ENV: development
       PORT: 3001
       JWT_SECRET_KEY: ""
