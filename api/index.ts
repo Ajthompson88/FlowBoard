@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import 'pg';
 import app from '../server/src/app.js';
 import { sequelize } from '../server/src/models/index.js';
 
