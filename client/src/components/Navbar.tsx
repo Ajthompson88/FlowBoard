@@ -17,9 +17,9 @@ export default function Navbar() {
   const authed = !!getToken(); // derive from token stored by authAPI.tsx
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--brand-panel)]/70 backdrop-blur-md ring-1 ring-white/10">
+    <nav className="sticky top-0 z-50 bg-(--brand-panel)/70 backdrop-blur-md ring-1 ring-white/10">
       <div className="flex h-14 w-full items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="text-base font-semibold tracking-wide text-[var(--brand-text)]">
+        <Link to="/" className="text-base font-semibold tracking-wide text-(--brand-text)">
           FlowBoard
         </Link>
 
@@ -30,8 +30,8 @@ export default function Navbar() {
               <button
                 onClick={() => { logout(); navigate("/"); }}
                 className="px-3 py-1.5 rounded-lg text-sm font-medium
-                           bg-[var(--brand-accent)] text-black
-                           hover:bg-[var(--brand-accent-2)] transition-colors"
+                           bg-(--brand-accent) text-black
+                           hover:bg-(--brand-accent-2) transition-colors"
               >
                 Logout
               </button>

@@ -1,16 +1,18 @@
 services:
   db:
     image: postgres:17
+    env_file:
+      - ./server/.env.docker
     environment:
-      POSTGRES_DB: kanbanboard_bobe
-      POSTGRES_USER: kanbanboard_bobe_user
-      POSTGRES_PASSWORD: Password123
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - dbdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U kanbanboard_bobe_user -d kanbanboard_bobe"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
       timeout: 3s
       retries: 10
@@ -20,12 +22,10 @@ services:
       context: ./server
       dockerfile: Dockerfile
     env_file:
-      - ./server/.env.local
+      - ./server/.env.docker
     environment:
-      DB_URL: postgresql://kanbanboard_bobe_user:Password123@db:5432/kanbanboard_bobe
       NODE_ENV: development
       PORT: 3001
-      JWT_SECRET_KEY: ""
     depends_on:
       db:
         condition: service_healthy
@@ -36,12 +36,11 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-    env_file:
-      - ./client/.env.local
     depends_on:
       - server
     ports:
-      - "5173:3000"   # host:container — nginx listens on 3000 in the image
+      - "5173:3000"
 
 volumes:
   dbdata:
+

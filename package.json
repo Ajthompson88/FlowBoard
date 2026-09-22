@@ -7,22 +7,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cd server && npm start",
-    "dev": "concurrently \"npm run server:dev\" \"wait-on tcp:3001 && npm run client:dev\"",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "server": "cd server && npm start",
     "server:dev": "cd server && npm run dev",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build:client": "cd client && npm ci && npm run build",
+    "build:client": "cd client && npm run build",
     "client:dev": "cd client && npm run dev",
     "build:server": "cd server && npm ci && npm run build",
     "build": "npm run build:client && npm run build:server",
     "seed": "cd server && npm run seed",
     "render-build": "npm --prefix server install --no-audit --no-fund && npm --prefix client install --no-audit --no-fund && npm --prefix server run build && npm --prefix client run build",
     "render-start": "npm --prefix server run start",
-    "docker:build": "docker compose build",
-    "docker:up": "docker compose up -d",
-    "docker:logs": "docker compose logs -f",
-    "docker:down": "docker compose down -v",
-    "lint": "eslint"
+    "docker:build": "docker compose --env-file server/.env.docker build",
+    "docker:up": "docker compose --env-file server/.env.docker up -d",
+    "docker:logs": "docker compose --env-file server/.env.docker logs -f",
+    "docker:down": "docker compose --env-file server/.env.docker down",
+    "lint": "eslint",
+    "docker:reset": "docker compose --env-file server/.env.docker down -v"
   },
   "keywords": [],
   "author": "",
@@ -48,7 +49,7 @@
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^7.0.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0",
     "wait-on": "^9.1.0"
   },
@@ -62,13 +63,15 @@
     ]
   },
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
     "kill": "^0.0.2",
-    "prettier": "^3.9.6"
+    "pg": "^8.23.0",
+    "prettier": "^3.9.6",
+    "sequelize": "^6.37.8"
   }
 }

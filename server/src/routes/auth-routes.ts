@@ -1,12 +1,20 @@
 // server/src/routes/auth-routes.ts
 import { Router } from "express";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { Op } from "sequelize";
 import { User } from "../models/index.js";
+import jwt from "jsonwebtoken";
 
 const router = Router();
-const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || "devsecret";
+const JWT_SECRET: string = (() => {
+  const secret = process.env.ACCESS_TOKEN_SECRET;
+
+  if (!secret) {
+    throw new Error("ACCESS_TOKEN_SECRET environment variable is required");
+  }
+
+  return secret;
+})();
 
 /** Helper: sign JWT for a user record */
 function signFor(u: { id: number; username: string; email: string }) {

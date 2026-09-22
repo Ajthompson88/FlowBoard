@@ -40,9 +40,9 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.13.3",
     "ts-node": "^10.9.2",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   },
   "overrides": {
-  "uuid": "^11.1.1"
-}
+    "uuid": "^11.1.1"
+  }
 }
