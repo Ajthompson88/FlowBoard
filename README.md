@@ -255,7 +255,7 @@ M14KanbanBoardChallenge/
 │   ├── nodemon.json
 │   ├── package-lock.json
 │   ├── package.json
-│   ├── sequelize.config.cjs
+│   ├── config/
 │   ├── tsconfig.json
 │   ├── DB_WORKFLOW.md
 │   ├── docker-compose.yml
